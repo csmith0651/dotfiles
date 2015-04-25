@@ -10,7 +10,7 @@
 (add-hook 'ruby-mode-hook 'my-ruby-mode-hook)
 
 ;; set global bindings
-(global-set-key (kbd "C-c s") 'eshell)
+(global-set-key (kbd "C-c s") 'shell)
 (global-set-key (kbd "C-c g") 'goto-line)
 (global-set-key (kbd "C-c k") 'erase-buffer)
 (global-set-key (kbd "<s-up>") 'gcm-scroll-up)

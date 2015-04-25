@@ -20,7 +20,9 @@ function parse_git_branch () {
 # NO_COLOR="\[\033[0m\]"
 # [[ "$TERM" == dumb ]] && PS1="\n\w\n$ "
 # [[ "$TERM" != dumb ]] && PS1="\n\[\e[1;36m\]\w $YELLOW\$(parse_git_branch)$NO_COLOR\n\[\e[1;32m\]$ \    [\e[0m\]"
+
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:~/bin
 
 # Load the default .profil
 [[ -s "$HOME/.profile" ]] && source "$HOME/.profile"
