@@ -1,0 +1,21 @@
+alias ls='ls -CF'
+alias ll='ls -lsh'
+alias h=history
+alias clean='rm -rf *~'
+alias cdg='cd `~/bin/gitrootofpath`'
+alias gs='git status'
+alias ff='function _ff() { find . -name $1 -print; }; _ff'
+alias formatpath='echo $PATH | perl -pe "s/:/\n/g"'
+alias hg='function _hg() { history | grep -i $1; }; _hg'
+alias eg='function _eg() { env | grep -i $1; }; _eg'
+alias beep="echo ''; echo ''; echo ''"
+alias la=uptime
+alias be='bundle exec'
+alias bi='bundle install'
+alias r193='rvm use ruby-1.9.3-p484'
+alias r215='rvm use ruby-2.1.5'
+alias ackr='ack --ruby'
+# show only the directories in the CWD.
+#alias lsd='find . -type d 
+alias '..'='cd ..'
+alias gohere='export GOPATH=`pwd`'
