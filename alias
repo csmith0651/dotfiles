@@ -2,6 +2,7 @@ alias ls='ls -CF'
 alias ll='ls -lsh'
 alias h=history
 alias clean='rm -rf *~'
+alias cleanall='rm -rf \.*~'
 alias cdg='cd `~/bin/gitrootofpath`'
 alias gs='git status'
 alias ff='function _ff() { find . -name $1 -print; }; _ff'
@@ -18,4 +19,6 @@ alias ackr='ack --ruby'
 # show only the directories in the CWD.
 #alias lsd='find . -type d 
 alias '..'='cd ..'
+#alias gohere='export GOPATH=`pwd`; export PATH=$PATH:$GOPATH/bin'
 alias gohere='export GOPATH=`pwd`'
+alias p1='pushd +1'

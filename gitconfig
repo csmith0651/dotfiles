@@ -11,3 +11,5 @@
 [user]
 	name = Craig Smith
 	email = craig.smith@tapjoy.com
+[credential]
+	helper = osxkeychain
