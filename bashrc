@@ -16,8 +16,6 @@ if [ -f ~/.mycolors ]; then
   . ~/.mycolors
 fi
 
-# succinct way to load file
-#test -f ~/.git-prompt.sh && . $_
 if [ -f ~/.git-prompt.sh ]; then
    export GIT_PS1_SHOWDIRTYSTATE=true
    . ~/.git-prompt.sh
@@ -36,6 +34,8 @@ function parse_git_branch () {
 #[[ "$TERM" == dumb ]] && PS1="\n\w\n$ "
 #[[ "$TERM" != dumb ]] && PS1="\n\[\e[1;36m\]\w $YELLOW\$(parse_git_branch)$NO_COLOR\n\[\e[1;32m\]$ \    [\e[0m\]"
 
+# need to know if were are on the primary machine, i.e. the machien I normally work on. If so, omit the machine
+# name from the prompt
 host=`hostname`
 if [ "$host" == "Craigs-MacBook-Pro.local" -o "$host" == "Craigs-MBP" ];
 then

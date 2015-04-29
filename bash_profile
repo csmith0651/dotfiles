@@ -16,17 +16,6 @@ export CDPATH=$CDPATH:~/src:~
 # source ~/src/TEM/em.sh
 # em init
 
-# if [ -f ~/.mycolors ]; then
-#   . ~/.mycolors
-# fi
-# 
-# # succinct way to load file
-# test -f ~/.git-prompt.sh && . $_
-# 
-# if [ -f ~/.git-completion.bash ]; then
-#   . ~/.git-completion.bash
-# fi
-
 if [ -f ~/.bashrc ]; then
    source ~/.bashrc
 fi
