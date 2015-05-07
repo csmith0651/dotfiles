@@ -11,6 +11,7 @@ fi
 
 source ~/src/TEM/em.sh
 em init
+em jenkins use dev
 
 if [ -f ~/.mycolors ]; then
   . ~/.mycolors
