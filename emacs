@@ -70,8 +70,9 @@
     (message "erase eshell buffer")))
 
 
-;;(add-to-list 'load-path "/Users/craigsmith/lib/emacs/go-mode/")
-;;(require 'go-mode-load)
+(add-to-list 'load-path "/Users/craigsmith/lib/emacs/go-mode/")
+(require 'go-mode)
+(add-hook 'before-save-hook #'gofmt-before-save)
 
 
 ;; Occasionally this could be useful, but not in general.
