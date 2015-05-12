@@ -1,3 +1,7 @@
+#
+# INVOKED: login and subshell
+#
+
 echo "entering .bashrc"
 
 # stupid hack, inject /usr/local/bin at the beginning of the path if started inside emacs
@@ -24,6 +28,11 @@ fi
 
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
+fi
+
+if [ -f ~/.gvm/scripts/gvm ]; then
+  source ~/.gvm/scripts/gvm
+  gvm use go1.4.2
 fi
 
 function parse_git_branch () {

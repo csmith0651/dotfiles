@@ -1,3 +1,8 @@
+#
+# INVOKED: login and subshell
+#
+
+
 echo "entering .profile"
 
 #export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
@@ -6,5 +11,6 @@ echo "entering .profile"
 #
 #[[ -s "$HOME/src/tem/em.sh" ]] && source "$HOME/src/tem/em.sh" # load environment manager
 
+# [[ -s "/Users/craigsmith/.gvm/scripts/gvm" ]] && source "/Users/craigsmith/.gvm/scripts/gvm"
+
 echo "exiting .profile"
-[[ -s "/Users/craigsmith/.gvm/scripts/gvm" ]] && source "/Users/craigsmith/.gvm/scripts/gvm"
