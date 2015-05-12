@@ -19,7 +19,10 @@ alias ackr='ack --ruby'
 # show only the directories in the CWD.
 #alias lsd='find . -type d 
 alias '..'='cd ..'
+alias '...'='cd ../..'
+alias '....'='cd ../../..'
 #alias gohere='export GOPATH=`pwd`; export PATH=$PATH:$GOPATH/bin'
 alias gohere='export GOPATH=`pwd`'
-alias gobidservice='export GOPATH /Users/craigsmith/src/bidservice/src/github.com/tapjoy/bidservice'
+alias gobidservice='export GOPATH=/Users/craigsmith/src/bidservice'
 alias p1='pushd +1'
+alias cdbid='cd ~/src/bidservice/src/github.com/tapjoy/bidservice'
