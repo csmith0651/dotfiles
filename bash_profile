@@ -1,3 +1,7 @@
+#
+# INVOKED: login
+#
+
 echo "entering .bash_profile"
 
 export EC2_HOME=~/.ec2
