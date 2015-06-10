@@ -4,6 +4,9 @@
 
 echo "entering .bash_profile"
 
+# for tjsh
+export TARGET_URL=http://craigs-tapinabox.tapjoy.net
+
 export EC2_HOME=~/.ec2
 export SLUG_BUCKET=tj-slugforge
 export HISTSIZE=2000
