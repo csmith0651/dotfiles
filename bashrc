@@ -55,6 +55,7 @@ else
 fi
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:/Users/craigsmith/Applications/vertica-drivers/vertica/bin
 PATH=$PATH:~/bin
 
 # Load the default .profil
