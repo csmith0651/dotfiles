@@ -13,8 +13,8 @@
 (global-set-key (kbd "C-c s") 'shell)
 (global-set-key (kbd "C-c g") 'goto-line)
 (global-set-key (kbd "C-c k") 'erase-buffer)
-(global-set-key (kbd "<s-up>") 'gcm-scroll-up)
-(global-set-key (kbd "<s-down>") 'gcm-scroll-down)
+(global-set-key (kbd "<C-up>") 'gcm-scroll-up)
+(global-set-key (kbd "<C-down>") 'gcm-scroll-down)
 (global-set-key (kbd "ESC <up>") 'move-previous-line)
 (global-set-key (kbd "ESC <down>") 'move-next-line)
 (global-set-key (kbd "C-c p") 'dirs)
@@ -39,6 +39,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(font-lock-function-name-face ((t (:foreground "yellow"))))
  '(font-lock-string-face ((t (:foreground "color-166"))))
  '(minibuffer-prompt ((t (:background "black" :foreground "yellow")))))
 
@@ -71,7 +72,7 @@
     (message "erase eshell buffer")))
 
 
-(add-to-list 'load-path "/Users/craigsmith/lib/emacs/go-mode/")
+(add-to-list 'load-path "~/lib/emacs/go-mode/")
 (require 'go-mode)
 (add-hook 'before-save-hook #'gofmt-before-save)
 
@@ -86,6 +87,15 @@
 					; Godef jump key binding
   (local-set-key (kbd "M-.") 'godef-jump))
 (add-hook 'go-mode-hook 'my-go-mode-hook)
+
+;; configure for text window and iterm 
+(setq mac-option-key-is-meta nil)
+(setq mac-command-key-is-meta t)
+(setq mac-command-modifier 'meta)
+(setq mac-option-modifier nil)
+
+(require 'ido)
+(ido-mode t)
 
 
 ;; Occasionally this could be useful, but not in general.
