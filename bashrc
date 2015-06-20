@@ -33,6 +33,8 @@ fi
 if [ -f ~/.gvm/scripts/gvm ]; then
   source ~/.gvm/scripts/gvm
   gvm use go1.4.2
+  # most likely place :-)
+  export GOPATH=~/src/bidservice
 fi
 
 function parse_git_branch () {
@@ -57,6 +59,10 @@ fi
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:/Users/craigsmith/Applications/vertica-drivers/vertica/bin
 PATH=$PATH:~/bin
+
+if [ ! -z "$GOPATH" ]; then
+  export PATH=$PATH:$GOPATH/bin
+fi
 
 # Load the default .profil
 [[ -s "$HOME/.profile" ]] && source "$HOME/.profile"
