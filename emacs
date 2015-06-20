@@ -13,10 +13,10 @@
 (global-set-key (kbd "C-c s") 'shell)
 (global-set-key (kbd "C-c g") 'goto-line)
 (global-set-key (kbd "C-c k") 'erase-buffer)
-(global-set-key (kbd "<C-up>") 'gcm-scroll-up)
-(global-set-key (kbd "<C-down>") 'gcm-scroll-down)
-(global-set-key (kbd "ESC <up>") 'move-previous-line)
-(global-set-key (kbd "ESC <down>") 'move-next-line)
+(global-set-key (kbd "<C-up>") 'move-previous-line)
+(global-set-key (kbd "<C-down>") 'move-next-line)
+(global-set-key (kbd "ESC <up>") 'gcm-scroll-up)
+(global-set-key (kbd "ESC <down>") 'gcm-scroll-down)
 (global-set-key (kbd "C-c p") 'dirs)
 (global-set-key (kbd "C-c ^") 'my-enlarge-window)
 
@@ -94,9 +94,20 @@
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier nil)
 
+;; enable ido-mode
 (require 'ido)
 (ido-mode t)
 
+;; enable column line number position
+(column-number-mode)
 
 ;; Occasionally this could be useful, but not in general.
 ;;(desktop-save-mode 1)
+
+;; could be useful for definining count-string-method
+(require 'thingatpt)
+
+;; figure out how to download and install, maybe using package-install
+;; see: http://stackoverflow.com/questions/10092322/how-to-automatically-install-emacs-packages-by-specifying-a-list-of-package-name
+;; expand-region
+
