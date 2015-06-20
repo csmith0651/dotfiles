@@ -1,3 +1,4 @@
+echo "entering .alias"
 alias ls='ls -CF'
 alias ll='ls -lsh'
 alias h=history
@@ -33,3 +34,5 @@ alias resettjsh='pushd ~/src/tjsh && gem build tjsh.gemspec && gem install tjsh*
 alias tjsstop='pushd ~/src/service_control; ./services stop; popd'
 alias tjsstart='pushd ~/src/service_control; ./services start; popd'
 alias glog='\git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --date=relative'
+alias ackg='ack --go'
+echo "exiting .alias"
