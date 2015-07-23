@@ -34,7 +34,7 @@ if [ -f ~/.gvm/scripts/gvm ]; then
   source ~/.gvm/scripts/gvm
   gvm use go1.4.2
   # most likely place :-)
-  export GOPATH=~/src/bidservice
+  export GOPATH=~/src/go
 fi
 
 function parse_git_branch () {
