@@ -6,7 +6,7 @@ alias clean='rm -rf *~'
 alias cleanall='rm -rf \.*~'
 alias cdg='cd `~/bin/gitrootofpath`'
 alias gs='git status'
-alias ff='function _ff() { find . -name $1 -print; }; _ff'
+alias ff="find . -type f -name "
 alias formatpath='echo $PATH | perl -pe "s/:/\n/g"'
 alias hg='function _hg() { history | grep -i $1; }; _hg'
 alias eg='function _eg() { env | grep -i $1; }; _eg'
@@ -34,4 +34,14 @@ alias tjsstop='pushd ~/src/service_control; ./services stop; popd'
 alias tjsstart='pushd ~/src/service_control; ./services start; popd'
 alias glog='\git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --date=relative'
 alias ackg='ack --go'
+alias ackgw='ack --go -w'
+alias giff='git difftool $1'
+alias gome='cd $GOPATH/src/github.com/csmith0651'
+alias p.="pushd ."
+alias p1="pushd +1"
+alias fakeadx="pushd ~/src/fake_adx; foreman start & ; open http://localhost:5050"
+alias notifydone='terminal-notifier -title "Terminal" -message "Done with task"'
+alias sshcd='ssh -t craig.smith@$1 cd /opt/apps/adfilteringservice/current/logs; bash'
+alias gco='git checkout'
+alias gpo='git pull origin'
 echo "exiting .alias"

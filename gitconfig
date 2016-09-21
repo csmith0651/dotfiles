@@ -16,9 +16,19 @@
 [diff]
 	tool = diffmerge
 [difftool "diffmerge"]
-	cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
+	cmd = /usr/bin/diffmerge \"$LOCAL\" \"$REMOTE\"
 [merge]
 	tool = diffmerge
 [mergetool "diffmerge"]
 	cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
 	trustExitCode = true
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[github]
+	user = csmith0651
+	password = W@Ert0wnig
+	oauth-token = 49284d57e240fb6ccaa0bb18ba9d2e8019e39f1d
+[core]
+	editor = /usr/bin/vim
