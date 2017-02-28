@@ -16,8 +16,7 @@ alias be='bundle exec'
 alias bi='bundle install'
 alias r193='rvm use ruby-1.9.3-p484'
 alias r215='rvm use ruby-2.1.5'
-alias ackr='ack --ruby'
-alias ackrw='ack --ruby -w'
+
 # show only the directories in the CWD.
 #alias lsd='find . -type d 
 alias '..'='cd ..'
@@ -33,8 +32,18 @@ alias resettjsh='pushd ~/src/tjsh && gem build tjsh.gemspec && gem install tjsh*
 alias tjsstop='pushd ~/src/service_control; ./services stop; popd'
 alias tjsstart='pushd ~/src/service_control; ./services start; popd'
 alias glog='\git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --date=relative'
-alias ackg='ack --go'
-alias ackgw='ack --go -w'
+# all things search
+alias ackg='ag --go'
+alias agg='ag --go'
+alias ackgw='ag --go -w'
+alias aggw='ag --go -w'
+alias ackr='ag --ruby'
+alias ackrw='ag --ruby -w'
+alias agr='ag --ruby'
+alias agrw='ag --ruby -w'
+alias agj='ag --java'
+alias agp='ag --python'
+#
 alias giff='git difftool $1'
 alias gome='cd $GOPATH/src/github.com/csmith0651'
 alias p.="pushd ."
@@ -44,4 +53,12 @@ alias notifydone='terminal-notifier -title "Terminal" -message "Done with task"'
 alias sshcd='ssh -t craig.smith@$1 cd /opt/apps/adfilteringservice/current/logs; bash'
 alias gco='git checkout'
 alias gpo='git pull origin'
+alias collectddown='sudo /bin/launchctl unload /Library/LaunchDaemons/com.signalfx.collectd.plist'
+alias collectdup='sudo /bin/launchctl load /Library/LaunchDaemons/com.signalfx.collectd.plist'
+alias afslist='em aws use prod; pushd ~craigsmith/src/ops-toolbox-internal/scripts/ec2_host; ./ec2-host.rb print -t server_lookup_group=adfilteringservice-web; popd; em aws use dev'
+alias offerslist='em aws use prod; pushd ~craigsmith/src/ops-toolbox-internal/scripts/ec2_host; ./ec2-host.rb print -t server_lookup_group=tapjoyserver-web_offers; popd; em aws use dev'
+alias afsoverride='export OFFER_FILE_OVERRIDE="/Users/craigsmith/Downloads/enabled-offers-v1.json"'
+alias nukelogs='pushd ~/src/tapjoyserver; rake log:clear; popd'
+alias perlde='perl -de "1"'
+
 echo "exiting .alias"

@@ -32,3 +32,10 @@
 	oauth-token = 49284d57e240fb6ccaa0bb18ba9d2e8019e39f1d
 [core]
 	editor = /usr/bin/vim
+	excludesfile = /Users/craigsmith/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

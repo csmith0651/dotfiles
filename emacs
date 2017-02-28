@@ -60,6 +60,11 @@
 	            (set-visited-file-name new-name t t)))))))
 
 ;; -------------------------------------
+(defun pbcopy-on-region (&optional b e)
+  (interactive "r")
+  (shell-command-on-region b e "pbcopy"))
+
+;; -------------------------------------
 
 ;; set global bindings
 (global-set-key (kbd "C-c s") 'shell)
@@ -72,6 +77,8 @@
 (global-set-key (kbd "C-c d") 'dirs)
 (global-set-key (kbd "C-c ^") 'my-enlarge-window)
 (global-set-key (kbd "C-c e") 'recompile)
+(global-set-key (kbd "C-c w") 'pbcopy-on-region)
+(global-set-key (kbd "C-c |") 'shell-command-on-region)
 ;; temporary
 (global-set-key (kbd "M-[ a") 'gcm-scroll-up)
 (global-set-key (kbd "M-[ b") 'gcm-scroll-down)
