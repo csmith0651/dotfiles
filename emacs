@@ -20,14 +20,6 @@
 (add-hook 'python-mode-hook 'my-ruby-mode-hook)
 (add-hook 'ruby-mode-hook 'my-ruby-mode-hook)
 
-;;(load-file "$GOPATH/src/golang.org/x/tools/cmd/oracle/oracle.el")
-
-(require 'go-guru)
-(add-hook 'go-mode-hook #'go-guru-hl-identifier-mode)
-
-
-(require 'golint)
-
 (defun my-go-mode-hook ()
   (setq gofmt-command "goimports")
   (add-hook 'before-save-hook 'gofmt-before-save)
@@ -79,6 +71,7 @@
 (global-set-key (kbd "C-c e") 'recompile)
 (global-set-key (kbd "C-c w") 'pbcopy-on-region)
 (global-set-key (kbd "C-c |") 'shell-command-on-region)
+(global-set-key (kbd "C-c f") 'find-file-other-window)
 ;; temporary
 (global-set-key (kbd "M-[ a") 'gcm-scroll-up)
 (global-set-key (kbd "M-[ b") 'gcm-scroll-down)
@@ -141,9 +134,12 @@
 (require 'flx-ido)
 (ido-mode 1)    ; actually I kind of like it with file
 (ido-everywhere 1)
+(require 'ido-completing-read+)
 (ido-ubiquitous-mode 1)
 (ido-vertical-mode 1)
+
 (global-set-key (kbd "M-x") 'smex)
+
 ;; keep the old M-x around.
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 ;; ido-vertical mode needs more space. regular ido 3 is good
@@ -154,19 +150,23 @@
 (setq ido-use-faces nil)
 
 ;; turn on projectile globally
-(projectile-global-mode)
+					;(projectile-global-mode)
+(projectile-mode)
 
 ;; enable column line number position
 (column-number-mode)
+
+;; indenting does not use tabs
+(setq-default indent-tabs-mode nil)
 
 (when window-system (set-exec-path-from-shell-PATH))
 
 (require 'auto-complete)
 (require 'go-autocomplete)
-(require 'auto-complete-config)
+;;no longer needed? 7-10-2018
+;;(require 'auto-complete-config)
 (ac-config-default)
 (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
-
 
 (defun small-screen()
   (small-font)
@@ -175,7 +175,6 @@
 (defun small-font ()
      ;;     (interactive)
      ())
-     
 
 (defun small-split ()
   (setq split-height-threshold 80)
@@ -211,3 +210,17 @@
     (comment-or-uncomment-region (line-beginning-position) (line-end-position)))
 
 (global-set-key (kbd "C-c /") 'toggle-comment-on-line)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(js-indent-level 2))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+; (global-hl-line-mode +1)

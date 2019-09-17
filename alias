@@ -1,21 +1,22 @@
-echo "entering .alias"
+echo "entering .alias: PATH = $PATH"
+
 alias ls='ls -CF'
 alias ll='ls -lsh'
 alias h=history
 alias clean='rm -rf *~'
 alias cleanall='rm -rf \.*~'
-alias cdg='cd `~/bin/gitrootofpath`'
+# alias cdg='cd `~/bin/gitrootofpath`'
 alias gs='git status'
+alias ffd="find . -type d -name "
 alias ff="find . -type f -name "
+alias ffd+="find ~+ -type d -name "
+alias ff+="find ~+ -type f -name "
 alias formatpath='echo $PATH | perl -pe "s/:/\n/g"'
 alias hg='function _hg() { history | grep -i $1; }; _hg'
 alias eg='function _eg() { env | grep -i $1; }; _eg'
 alias beep="echo ''; echo ''; echo ''"
+# alias notify='osascript -e "display notification \"task complete\""'
 alias la=uptime
-alias be='bundle exec'
-alias bi='bundle install'
-alias r193='rvm use ruby-1.9.3-p484'
-alias r215='rvm use ruby-2.1.5'
 
 # show only the directories in the CWD.
 #alias lsd='find . -type d 
@@ -25,12 +26,8 @@ alias '....'='cd ../../..'
 #alias gohere='export GOPATH=`pwd`; export PATH=$PATH:$GOPATH/bin'
 alias gohere='export GOPATH=`pwd`'
 alias p1='pushd +1'
-alias cdbid='cd ~/src/go/src/github.com/tapjoy/bidservice'
 alias cdn='cd "`~/bin/sibofdir -next`"'
 alias cdp='cd "`~/bin/sibofdir -prev`"'
-alias resettjsh='pushd ~/src/tjsh && gem build tjsh.gemspec && gem install tjsh*.gem --no-ri --no-doc && popd'
-alias tjsstop='pushd ~/src/service_control; ./services stop; popd'
-alias tjsstart='pushd ~/src/service_control; ./services start; popd'
 alias glog='\git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --date=relative'
 # all things search
 alias ackg='ag --go'
@@ -42,23 +39,42 @@ alias ackrw='ag --ruby -w'
 alias agr='ag --ruby'
 alias agrw='ag --ruby -w'
 alias agj='ag --java'
+alias jag='ag --java'
+alias jack='ag --java'
 alias agp='ag --python'
+alias gag='ag --groovy'
 #
 alias giff='git difftool $1'
-alias gome='cd $GOPATH/src/github.com/csmith0651'
 alias p.="pushd ."
 alias p1="pushd +1"
-alias fakeadx="pushd ~/src/fake_adx; foreman start & ; open http://localhost:5050"
 alias notifydone='terminal-notifier -title "Terminal" -message "Done with task"'
-alias sshcd='ssh -t craig.smith@$1 cd /opt/apps/adfilteringservice/current/logs; bash'
 alias gco='git checkout'
 alias gpo='git pull origin'
-alias collectddown='sudo /bin/launchctl unload /Library/LaunchDaemons/com.signalfx.collectd.plist'
-alias collectdup='sudo /bin/launchctl load /Library/LaunchDaemons/com.signalfx.collectd.plist'
-alias afslist='em aws use prod; pushd ~craigsmith/src/ops-toolbox-internal/scripts/ec2_host; ./ec2-host.rb print -t server_lookup_group=adfilteringservice-web; popd; em aws use dev'
-alias offerslist='em aws use prod; pushd ~craigsmith/src/ops-toolbox-internal/scripts/ec2_host; ./ec2-host.rb print -t server_lookup_group=tapjoyserver-web_offers; popd; em aws use dev'
-alias afsoverride='export OFFER_FILE_OVERRIDE="/Users/craigsmith/Downloads/enabled-offers-v1.json"'
-alias nukelogs='pushd ~/src/tapjoyserver; rake log:clear; popd'
+# alias collectddown='sudo /bin/launchctl unload /Library/LaunchDaemons/com.signalfx.collectd.plist'
+# alias collectdup='sudo /bin/launchctl load /Library/LaunchDaemons/com.signalfx.collectd.plist'
 alias perlde='perl -de "1"'
+alias cdsc='cd ~/craigsmith/g/cloud/sophos-cloud'
+alias jpaths="jq -c 'paths | select(.[-1] == \'$1\')"
+alias dorker='docker'
+alias sep='echo "-----------------------------------------------"'
+alias stopdock='docker stop $(docker ps -a -q)'
 
-echo "exiting .alias"
+function title {
+    echo -ne "\033]0;"$*"\007"
+}
+
+function stacksummary() {
+  for i in "$@"
+  do
+    if [ $# -gt 1 ]; then
+      echo -- $i --
+    fi
+    cat $i | jq -r '.Resources | to_entries | .[].value.Type' | sort | uniq -c | sort -r
+  done
+}
+
+if [ -f ~/.alias-work ]; then
+  source ~/.alias-work
+fi
+
+echo "exiting .alias: PATH = $PATH"
